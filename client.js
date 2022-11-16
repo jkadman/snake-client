@@ -27,16 +27,8 @@ const connect = function () {
   conn.on('connect', () => {
     conn.write('Name: JK');
   })
-  // tell snek to move up on the board
-  conn.on('connect', () => {
-    conn.write('Move: up');
-    setInterval(() => {
-      conn.write('Move: up')}, 50)
-      setTimeout(() => {
-        conn.write('Move: left')}, 2000)
-  })
   
-
+  
   // connection.on('data', (messageFromTheServer) => {
   //   console.log('Server says:', messageFromTheServer); 
   // });

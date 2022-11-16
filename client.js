@@ -11,7 +11,7 @@ config = {
 const connect = function () {
   const conn = net.createConnection(config);
 
-// interpret incoming data as text
+  // interpret incoming data as text
   conn.setEncoding("utf8");
 
 
@@ -19,7 +19,22 @@ const connect = function () {
   conn.on('data', (x) => {
     console.log('Server says: ', x)
   })
-
+  // show that we are connected to the game server
+  conn.on('connect', () => {
+    console.log('Successfully connected to game server');
+  })
+  // basic identification of my snek on the board
+  conn.on('connect', () => {
+    conn.write('Name: JK');
+  })
+  // tell snek to move up on the board
+  conn.on('connect', () => {
+    conn.write('Move: up');
+    setInterval(() => {
+      conn.write('Move: up')}, 50)
+      setTimeout(() => {
+        conn.write('Move: left')}, 2000)
+  })
   
 
   // connection.on('data', (messageFromTheServer) => {

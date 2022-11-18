@@ -1,11 +1,9 @@
 const net = require("net");
+const { IP, PORT } = require("./constants");
 
-// config object for connect
-config = {
-  host: 'localhost',
-    port: 50541
-}
-
+// refactor config
+config = { host: IP, 
+          port: PORT };
 
 //establishes a connection with the game server
 const connect = function () {
